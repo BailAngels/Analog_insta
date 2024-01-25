@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список тегов</title>
+</head>
+<body>
+
+    <form action="{% url 'tag_update' tag.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Изменить</button>
+    </form>
+
+</body>
+</html>

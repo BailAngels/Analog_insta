@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.description }}</title>
+</head>
+<body>
+    <h1>{{ post.description }}</h1>
+    
+    {% for image in post.images.all %}
+        <img src="{{ image.image.url }}">
+    {% endfor %}
+
+    <form action="{% url 'delete_post' object.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+</body>
+</html>

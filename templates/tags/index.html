@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список тегов</title>
+</head>
+<body>
+
+    {% for tag in tag_list %}
+    	<a href="{% url 'tag_detail' tag.id %}">{{ tag.text }}</a><br>
+    {% endfor %}
+
+</body>
+</html>

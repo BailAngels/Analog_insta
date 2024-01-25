@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ tag.text }}</title>
+</head>
+<body>
+
+    {{ tag.text }}
+    <a href="{% url 'tag_update' tag.id %}">Обновить</a>
+    <form action="{% url 'tag_delete' tag.id %}">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+
+    <ul>
+        {% for post in tag.posts.all %}
+        <li><a href="{% url 'detail_post' post.id %}">{{ post.description }}</a></li>
+        {% endfor %}
+    </ul>
+    
+
+</body>
+</html>
